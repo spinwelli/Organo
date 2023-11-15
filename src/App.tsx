@@ -43,7 +43,7 @@ function App() {
       corSecundaria: '#FFEEDF'
     }
   ]
-
+  
   const [colaboradores, setColaboradores] = useState<IColaborador[]>([])
 
   const aoNovoColaboradorAdicionado = (colaborador: IColaborador) => {

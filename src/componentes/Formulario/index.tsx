@@ -16,6 +16,7 @@ const Formulario = (props: FormularioProps) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [data, setData] = useState('')
 
     const aoSalvar = (evento: React.FormEvent<HTMLFormElement> ) => {
         evento.preventDefault()
@@ -23,7 +24,8 @@ const Formulario = (props: FormularioProps) => {
             nome,
             cargo,
             imagem,
-            time
+            time,
+            data
         })
         setNome('')
         setCargo('')
@@ -41,6 +43,7 @@ const Formulario = (props: FormularioProps) => {
                     placeholder="Digite seu nome" 
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
+                    tipo = "text"
                 />
                 <CampoTexto
                     obrigatorio={true}
@@ -48,12 +51,21 @@ const Formulario = (props: FormularioProps) => {
                     placeholder="Digite seu cargo" 
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)}
+                    tipo='text'
                 />
                 <CampoTexto
                     label="Imagem"
                     placeholder="Digite o endereço da imagem" 
                     valor={imagem}
                     aoAlterado={valor => setImagem(valor)}
+                    tipo = "text"
+                />
+                <CampoTexto
+                    label="Data de entrada no time"
+                    placeholder="" 
+                    valor={data}
+                    aoAlterado={valor => setData(valor)}
+                    tipo = "date"
                 />
                 <ListaSuspensa
                     obrigatorio={true}
@@ -61,6 +73,7 @@ const Formulario = (props: FormularioProps) => {
                     itens={props.times}
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
+                    
                 />
                 <Botao>
                     Criar Card
